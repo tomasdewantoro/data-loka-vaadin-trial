@@ -79,12 +79,6 @@ export class MainLayout extends Layout {
         title: 'Fusion',
         icon: 'la la-atom',
       },
-
-      {
-        path: 'master-detail',
-        title: 'Master-Detail',
-        icon: 'la la-columns',
-      },
     ];
   }
 }

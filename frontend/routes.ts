@@ -24,16 +24,6 @@ export const views: ViewRoute[] = [
       return;
     },
   },
-  {
-    path: 'master-detail',
-    component: 'master-detail-view',
-    icon: 'la la-columns',
-    title: 'Master-Detail',
-    action: async (_context, _command) => {
-      await import('./views/masterdetail/master-detail-view');
-      return;
-    },
-  },
 ];
 export const routes: ViewRoute[] = [
   {

@@ -1,16 +1,12 @@
 package com.example.application.data.service;
 
+import java.util.List;
 import com.example.application.data.entity.Person;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.vaadin.artur.helpers.CrudService;
-import com.vaadin.fusion.Nonnull;
-import javax.validation.constraints.Email;
-import java.time.LocalDate;
 
 @Service
-public class PersonService extends CrudService<Person, Integer> {
+public class PersonService {
 
     private PersonRepository repository;
 
@@ -18,9 +14,11 @@ public class PersonService extends CrudService<Person, Integer> {
         this.repository = repository;
     }
 
-    @Override
-    protected PersonRepository getRepository() {
-        return repository;
+    public List<Person> findAll() {
+        return repository.findAll();
     }
 
+    public Person save(Person person) {
+        return repository.save(person);
+    }
 }
