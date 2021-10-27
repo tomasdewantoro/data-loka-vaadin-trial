@@ -9,7 +9,6 @@ import com.vaadin.flow.router.Route;
 @Route(value = "")
 public class FlowView extends VerticalLayout {
 
-
     public FlowView() {
         add(new H1("Hello, Flow!"));
     }
