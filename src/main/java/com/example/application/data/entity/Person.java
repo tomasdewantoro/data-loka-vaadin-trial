@@ -3,6 +3,7 @@ package com.example.application.data.entity;
 import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import com.example.application.data.AbstractEntity;
 import com.vaadin.fusion.Nonnull;
@@ -11,14 +12,18 @@ import com.vaadin.fusion.Nonnull;
 public class Person extends AbstractEntity {
 
     @Nonnull
+    @NotBlank
     private String firstName;
+
     @Nonnull
+    @NotBlank
     private String lastName;
+
     @Email
     @Nonnull
+    @NotBlank
     private String email;
-    @Nonnull
-    private String phone;
+
     @Past
     private LocalDate dateOfBirth;
 
@@ -44,14 +49,6 @@ public class Person extends AbstractEntity {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public LocalDate getDateOfBirth() {
