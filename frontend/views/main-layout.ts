@@ -70,22 +70,11 @@ export class MainLayout extends Layout {
 
   private getMenuRoutes(): RouteInfo[] {
     return [
-      {
-        path: '',
-        title: 'Flow',
-        icon: 'lab la-java',
-      },
-
-      {
-        path: 'fusion',
-        title: 'Fusion',
-        icon: 'la la-atom',
-      },
-      {
-        path: 'movie',
-        title: 'Movie',
-        icon: 'la la-atom',
-      },
+      // {
+      //   path: 'movie',
+      //   title: 'Movie',
+      //   icon: 'la la-atom',
+      // },
     ];
   }
 }

@@ -1,0 +1,28 @@
+@import url('./main-layout.css');
+@import url('line-awesome/dist/line-awesome/css/line-awesome.min.css');
+
+fusion-view, movie-view {
+  display: flex;
+  flex-direction: column;
+  padding: var(--lumo-space-m);
+  gap: var(--lumo-space-m);
+}
+
+[theme~="dark"] {
+  --lumo-base-color: rgb(30, 34, 51);
+  --lumo-primary-color: rgb(248, 32, 105);
+  --lumo-primary-color-50pct: rgba(248, 32, 105, 0.5);
+  --lumo-primary-color-10pct: rgba(248, 32, 105, 0.1);
+  --lumo-shade: hsl(214, 24%, 14%);
+  --lumo-shade-5pct: hsla(214, 24%, 14%, 0.05);
+  --lumo-shade-10pct: hsla(214, 24%, 14%, 0.1);
+  --lumo-shade-20pct: hsla(214, 24%, 14%, 0.2);
+  --lumo-shade-30pct: hsla(214, 24%, 14%, 0.3);
+  --lumo-shade-40pct: hsla(214, 24%, 14%, 0.4);
+  --lumo-shade-50pct: hsla(214, 24%, 14%, 0.5);
+  --lumo-shade-60pct: hsla(214, 24%, 14%, 0.6);
+  --lumo-shade-70pct: hsla(214, 24%, 14%, 0.7);
+  --lumo-shade-80pct: hsla(214, 24%, 14%, 0.8);
+  --lumo-shade-90pct: hsla(214, 24%, 14%, 0.9);
+
+}

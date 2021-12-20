@@ -13,19 +13,8 @@ export type ViewRoute = Route & {
 };
 
 export const views: ViewRoute[] = [
-  // place routes below (more info https://vaadin.com/docs/latest/fusion/routing/overview)
   {
-    path: 'fusion',
-    component: 'fusion-view',
-    icon: 'la la-atom',
-    title: 'Fusion',
-    action: async (_context, _command) => {
-      await import('./views/fusion/fusion-view');
-      return;
-    },
-  },
-  {
-    path: 'movie',
+    path: '',
     component: 'movie-view',
     icon: 'la la-atom',
     title: 'Movie',

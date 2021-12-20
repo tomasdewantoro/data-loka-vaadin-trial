@@ -18,8 +18,8 @@ import com.vaadin.flow.component.dependency.NpmPackage;
  *
  */
 @SpringBootApplication
-@Theme(value = "vaadinintro")
-@PWA(name = "Vaadin Intro", shortName = "Vaadin Intro", offlineResources = {"images/logo.png"})
+@Theme(value = "dark")
+@PWA(name = "Loka Dark", shortName = "Loka Dark", offlineResources = {"images/logo.png"})
 @NpmPackage(value = "@adobe/lit-mobx", version = "2.0.0")
 @NpmPackage(value = "mobx", version = "^6.3.5")
 @NpmPackage(value = "line-awesome", version = "1.3.0")

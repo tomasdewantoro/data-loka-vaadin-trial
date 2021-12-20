@@ -1,4 +1,9 @@
-import '@vaadin/grid';
+
+import "@vaadin/horizontal-layout/src/vaadin-horizontal-layout";
+import "@vaadin/date-picker/src/vaadin-date-picker";
+import "@vaadin/form-layout/src/vaadin-form-layout";
+import "@vaadin/split-layout/src/vaadin-split-layout";
+import "@vaadin/grid/src/vaadin-grid-sort-column";import '@vaadin/grid';
 import { GridActiveItemChangedEvent } from '@vaadin/grid';
 import '@vaadin/text-field';
 import '@vaadin/email-field';
@@ -21,6 +26,7 @@ export class FusionView extends View {
 
   async connectedCallback() {
     super.connectedCallback();
+    this.classList.add('flex', 'flex-col', 'h-full');
     this.movies = await MovieService.findAll();
   }
 
@@ -43,31 +49,55 @@ export class FusionView extends View {
       this.binder.clear();
     }
   }
+  private cancel() {
+    this.selected = undefined;
+  }
 
   render() {
-    const { model } = this.binder;
     return html`
-      <vaadin-grid
-        .items=${this.movies}
-        @active-item-changed=${this.activeChanged}
-        .selectedItems=${[this.selected]}>
-        <vaadin-grid-column path="title"></vaadin-grid-column>
-        <vaadin-grid-column path="released"></vaadin-grid-column>
-        <vaadin-grid-column path="tagline"></vaadin-grid-column>
-      </vaadin-grid>
-
-      <div class="grid grid-cols-2 gap-m items-baseline">
-        <vaadin-text-field
-          label="Title"
-          ${field(model.title)}></vaadin-text-field>
-        <vaadin-text-field
-          label="Released"
-          ${field(model.released)}></vaadin-text-field>
-        <vaadin-email-field
-          label="Tagline"
-          ${field(model.tagline)}></vaadin-email-field>
-        <vaadin-button @click=${this.save}>Save</vaadin-button>
-      </div>
+      <vaadin-split-layout class="w-full h-full">
+        <div class="flex-grow w-full">
+          <vaadin-grid
+            id="grid"
+            class="w-full h-full"
+            theme="no-border"
+            .items=${this.movies}
+            @active-item-changed=${this.activeChanged}
+          >
+            <vaadin-grid-sort-column auto-width path="title"></vaadin-grid-sort-column>
+            <vaadin-grid-sort-column auto-width path="released"></vaadin-grid-sort-column>
+            <vaadin-grid-sort-column auto-width path="tagline"></vaadin-grid-sort-column>
+          </vaadin-grid>
+        </div>
+        <div class="flex flex-col" style="width: 400px;">
+          <div class="p-l flex-grow">
+            <vaadin-form-layout>
+              <vaadin-text-field
+                label="Title"
+                id="title"
+                ${field(this.binder.model.title)}
+              ></vaadin-text-field
+              ><vaadin-text-field
+                label="Released"
+                id="released"
+                ${field(this.binder.model.released)}
+              ></vaadin-text-field
+              ></vaadin-text-field
+              ><vaadin-date-picker
+                label="Tagline"
+                id="tagline"
+                ${field(this.binder.model.tagline)}
+              ></vaadin-date-picker
+              ></vaadin-text-field
+              >
+            </vaadin-form-layout>
+          </div>
+          <vaadin-horizontal-layout class="w-full flex-wrap bg-contrast-5 py-s px-l" theme="spacing">
+            <vaadin-button theme="primary" @click=${this.save}>Save</vaadin-button>
+            <vaadin-button theme="tertiary" @click=${this.cancel}>Cancel</vaadin-button>
+          </vaadin-horizontal-layout>
+        </div>
+      </vaadin-split-layout>
     `;
   }
 }
