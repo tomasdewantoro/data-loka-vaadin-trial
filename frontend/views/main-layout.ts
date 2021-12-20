@@ -1,5 +1,6 @@
-import '@vaadin/vaadin-app-layout';
-import { AppLayoutElement } from '@vaadin/vaadin-app-layout';
+
+import "@vaadin/app-layout/src/vaadin-drawer-toggle";
+import "@vaadin/app-layout/src/vaadin-app-layout";import '@vaadin/vaadin-app-layout';
 import '@vaadin/vaadin-app-layout/vaadin-drawer-toggle';
 import '@vaadin/vaadin-avatar/vaadin-avatar';
 import '@vaadin/vaadin-context-menu';
@@ -11,6 +12,7 @@ import { customElement } from 'lit/decorators.js';
 import { router } from '../index';
 import { appStore } from '../stores/app-store';
 import { Layout } from './view';
+import { AppLayoutElement } from "@vaadin/vaadin-app-layout";
 
 interface RouteInfo {
   path: string;
@@ -36,7 +38,7 @@ export class MainLayout extends Layout {
                 (viewRoute) => html`
                   <li>
                     <a
-                      ?highlight=${viewRoute.path == appStore.location}
+                      ?data-highlight=${viewRoute.path == appStore.location}
                       class="flex mx-s p-s relative text-secondary"
                       href=${router.urlForPath(viewRoute.path)}
                     >
@@ -77,6 +79,11 @@ export class MainLayout extends Layout {
       {
         path: 'fusion',
         title: 'Fusion',
+        icon: 'la la-atom',
+      },
+      {
+        path: 'movie',
+        title: 'Movie',
         icon: 'la la-atom',
       },
     ];

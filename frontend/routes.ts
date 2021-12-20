@@ -24,6 +24,16 @@ export const views: ViewRoute[] = [
       return;
     },
   },
+  {
+    path: 'movie',
+    component: 'movie-view',
+    icon: 'la la-atom',
+    title: 'Movie',
+    action: async (_context, _command) => {
+      await import('./views/fusion/movie-view');
+      return;
+    },
+  },
 ];
 export const routes: ViewRoute[] = [
   {

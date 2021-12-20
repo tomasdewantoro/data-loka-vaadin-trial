@@ -58,4 +58,8 @@ public class Person extends AbstractEntity {
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
+
+    // public Person(String firstName){
+    //     this.firstName = firstName;
+    // }
 }

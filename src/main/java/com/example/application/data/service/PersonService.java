@@ -19,6 +19,7 @@ public class PersonService {
     }
 
     public @Nonnull List<@Nonnull Person> findAll() {
+        System.out.println("new movies data are: "+repository.count());
         return repository.findAll();
     }
 
