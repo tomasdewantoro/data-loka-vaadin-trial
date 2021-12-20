@@ -83,13 +83,9 @@ export class FusionView extends View {
                 ${field(this.binder.model.released)}
               ></vaadin-text-field
               ></vaadin-text-field
-              ><vaadin-date-picker
-                label="Tagline"
-                id="tagline"
-                ${field(this.binder.model.tagline)}
-              ></vaadin-date-picker
-              ></vaadin-text-field
               >
+              <vaadin-text-field label="Tagline" id="tagline" ${field(this.binder.model.tagline)}></vaadin-text-field>
+              </vaadin-text-field>
             </vaadin-form-layout>
           </div>
           <vaadin-horizontal-layout class="w-full flex-wrap bg-contrast-5 py-s px-l" theme="spacing">
